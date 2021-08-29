@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 466209849}
   - component: {fileID: 466209850}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hitArea
   m_TagString: PlayerHit
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 1632714350364373824}
   - component: {fileID: 1632714350364373854}
   - component: {fileID: 1632714350364373825}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,8 +126,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -272495539
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 4236677631525818213, guid: c70de6ff0afb90c48bb33120b4d9bed1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 1802909519}
   - component: {fileID: 1802909520}
   - component: {fileID: 6573399293945040342}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,3 +253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ac5744eceecda4986072252232f987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 3
+  velocityJump: 5
+  limitJumps: 1

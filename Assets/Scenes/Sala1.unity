@@ -217,9 +217,9 @@ GameObject:
   - component: {fileID: 957343285}
   - component: {fileID: 957343284}
   - component: {fileID: 957343283}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -322,10 +322,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1802909519, guid: da1ee4f2af8cf3244a183f6ffbf21df1, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1632714350369225024, guid: da1ee4f2af8cf3244a183f6ffbf21df1, type: 3}
       propertyPath: m_Name
       value: Player
@@ -340,7 +336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1632714350369225025, guid: da1ee4f2af8cf3244a183f6ffbf21df1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.68
+      value: 2.89
       objectReference: {fileID: 0}
     - target: {fileID: 1632714350369225025, guid: da1ee4f2af8cf3244a183f6ffbf21df1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -373,10 +369,6 @@ PrefabInstance:
     - target: {fileID: 1632714350369225025, guid: da1ee4f2af8cf3244a183f6ffbf21df1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6573399293945040342, guid: da1ee4f2af8cf3244a183f6ffbf21df1, type: 3}
-      propertyPath: velocity
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da1ee4f2af8cf3244a183f6ffbf21df1, type: 3}
