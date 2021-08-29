@@ -1,6 +1,6 @@
 ﻿namespace Player
 {
-    public abstract class PlayerState
+    public abstract class AnimationParameter
     {
         public const string Moving = "Moving";
         public const string AirPosition = "AirPosition";
