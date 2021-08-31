@@ -69,8 +69,7 @@ namespace Player
 
         private void Jump()
         {
-            Debug.Log($"{this._jumps} {this.limitJumps}");
-            if (Input.GetButtonDown("Jump") && this._jumps < this.limitJumps)
+            if (this.IsGrounded() && Input.GetButtonDown("Jump") && this._jumps < this.limitJumps)
             {
                 var newVelocity = new Vector2(this._rigidbody2D.velocity.x, this.velocityJump);
 
