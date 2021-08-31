@@ -94,6 +94,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 2
+  minStateTime: 2
+  maxStateTime: 5
+  layerLevel:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1486363271870943845
 GameObject:
   m_ObjectHideFlags: 0

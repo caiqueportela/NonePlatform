@@ -17,16 +17,40 @@ namespace Enemies
         private float _nextStateChange;
 
         private Animator _animator;
+        
+        private BoxCollider2D _boxCollider2D;
+
+        [SerializeField] private LayerMask layerLevel;
+        private float _distanceWallCollision = 1f;
 
         void Start()
         {
             this._rigidbody2D = GetComponent<Rigidbody2D>();
             this._animator = GetComponentInChildren<Animator>();
+            this._boxCollider2D = GetComponent<BoxCollider2D>();
         }
 
         void Update()
         {
             this.ValidateState();
+            this.Move();
+        }
+        
+        private void FixedUpdate()
+        {
+            this.OnWall();
+        }
+
+        private void OnWall()
+        {
+            var isGrounded = this.IsGrounded();
+
+            if (isGrounded)
+            {
+                var direction = GetDirection();
+                
+                this._direction = Mathf.Sign(direction.x) * -1;
+            }
         }
 
         private void ValidateState()
@@ -39,7 +63,6 @@ namespace Enemies
             }
 
             this.RandomDirection();
-            this.Move();
             this.RandomStateTime();
         }
 
@@ -68,6 +91,28 @@ namespace Enemies
         private void RandomStateTime()
         {
             this._nextStateChange = Random.Range(this.minStateTime, this.maxStateTime);
+        }
+        
+        private bool IsGrounded()
+        {
+            // Direção do raycast
+            var direction = GetDirection();
+            
+            // Checando colisão com a parede
+            bool inWall = Physics2D.Raycast(this._boxCollider2D.bounds.center, direction,
+                this._distanceWallCollision, this.layerLevel);
+
+            var color = inWall ? Color.red : Color.green;
+
+            // Desenhando linha com o chão
+            Debug.DrawRay(this._boxCollider2D.bounds.center, direction * this._distanceWallCollision, color);
+
+            return inWall;
+        }
+
+        private Vector2 GetDirection()
+        {
+            return this._rigidbody2D.velocity.x > 0 ? Vector2.right : Vector2.left;
         }
     }
 }
