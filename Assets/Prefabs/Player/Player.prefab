@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 466209849}
   - component: {fileID: 466209850}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: hitArea
   m_TagString: PlayerHit
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.1197567, y: 0.31821048}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 1632714350364373824}
   - component: {fileID: 1632714350364373854}
   - component: {fileID: 1632714350364373825}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 1802909519}
   - component: {fileID: 1802909520}
   - component: {fileID: 6573399293945040342}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
