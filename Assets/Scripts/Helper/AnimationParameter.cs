@@ -1,4 +1,4 @@
-﻿namespace Player
+﻿namespace Helper
 {
     public abstract class AnimationParameter
     {
