@@ -1,3 +1,4 @@
+using Enemies;
 using Helper;
 using UnityEngine;
 
@@ -21,6 +22,12 @@ namespace Player
         [SerializeField] private LayerMask layerLevel;
         private float _distanceFloorCollision = 0.5f;
 
+        [SerializeField] private int life = 3;
+
+        [SerializeField] private float invincibilityTime = 2f;
+
+        private float _invincibility;
+
         void Start()
         {
             this._rigidbody2D = GetComponent<Rigidbody2D>();
@@ -30,9 +37,29 @@ namespace Player
 
         void Update()
         {
+            if (!this.IsAlive())
+            {
+                return;
+            }
+            
             this.Move();
 
             this.Jump();
+
+            this.CheckInvincibility();
+        }
+
+        private void CheckInvincibility()
+        {
+            if (!this.IsAlive())
+            {
+                return;
+            }
+            
+            if (this.IsInvincible())
+            {
+                this._invincibility -= Time.deltaTime;
+            }
         }
 
         private void FixedUpdate()
@@ -71,9 +98,7 @@ namespace Player
         {
             if (this.IsGrounded() && Input.GetButtonDown("Jump") && this._jumps < this.limitJumps)
             {
-                var newVelocity = new Vector2(this._rigidbody2D.velocity.x, this.velocityJump);
-
-                this._rigidbody2D.velocity = newVelocity;
+                this.DoJump();
 
                 // this._animator.SetBool(AnimationParameter.InFloor, false);
 
@@ -81,6 +106,13 @@ namespace Player
             }
 
             this._animator.SetFloat(AnimationParameter.AirPosition, this._rigidbody2D.velocity.y);
+        }
+
+        private void DoJump()
+        {
+            var newVelocity = new Vector2(this._rigidbody2D.velocity.x, this.velocityJump);
+
+            this._rigidbody2D.velocity = newVelocity;
         }
 
         private bool IsGrounded()
@@ -112,6 +144,58 @@ namespace Player
             {
                 // this._animator.SetBool(AnimationParameter.InFloor, false);
             }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag(Tags.EnemiesHit))
+            {
+                this.CollisionEnemy(other);
+            }
+        }
+
+        private void CollisionEnemy(Collider2D other)
+        {
+            var pigController = other.GetComponentInParent<PigController>();
+
+            if (!pigController.IsAlive() || !this.IsAlive())
+            {
+                return;
+            }
+            
+            pigController.Die();
+            
+            if (this.transform.position.y > other.transform.position.y)
+            {
+                this.DoJump();
+            }
+            else if (this._invincibility <= 0)
+            {
+                this._invincibility = this.invincibilityTime;
+                this.TakeDamage(1);
+            }
+        }
+
+        private void TakeDamage(int damage)
+        {
+            this.life -= damage;
+            this._animator.SetTrigger(AnimationParameter.Hit);
+
+            if (this.life <= 0)
+            {
+                this._animator.SetTrigger(AnimationParameter.Dead);
+                this._rigidbody2D.velocity = Vector2.zero;
+            }
+        }
+
+        private bool IsInvincible()
+        {
+            return this._invincibility > 0;
+        }
+        
+        public bool IsAlive()
+        {
+            return this.life > 0;
         }
     }
 }

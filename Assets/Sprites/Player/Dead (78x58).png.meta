@@ -44,7 +44,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -106,10 +106,10 @@ TextureImporter:
       name: Dead (78x58)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 78
-        height: 58
+        x: 6
+        y: 14
+        width: 37
+        height: 26
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,12 +127,12 @@ TextureImporter:
       name: Dead (78x58)_1
       rect:
         serializedVersion: 2
-        x: 78
-        y: 0
-        width: 78
-        height: 58
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 81
+        y: 9
+        width: 38
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.208}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -148,12 +148,12 @@ TextureImporter:
       name: Dead (78x58)_2
       rect:
         serializedVersion: 2
-        x: 156
-        y: 0
-        width: 78
-        height: 58
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 157
+        y: 11
+        width: 38
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.142}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -170,11 +170,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 234
-        y: 0
-        width: 78
-        height: 58
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 9
+        width: 38
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.228}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

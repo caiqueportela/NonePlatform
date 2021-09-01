@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerHit
   - Floor
+  - EnemiesHit
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - Background
   - PlayerHit
   - Player
-  - 
-  - 
+  - Enemies
+  - EnemiesHit
   - 
   - 
   - 
@@ -54,4 +55,10 @@ TagManager:
     locked: 0
   - name: Entities
     uniqueID: 534589527
+    locked: 0
+  - name: Enemies
+    uniqueID: 4019562093
+    locked: 0
+  - name: Player
+    uniqueID: 2619028549
     locked: 0

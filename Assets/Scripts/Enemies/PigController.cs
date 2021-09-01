@@ -17,11 +17,13 @@ namespace Enemies
         private float _nextStateChange;
 
         private Animator _animator;
-        
+
         private BoxCollider2D _boxCollider2D;
 
         [SerializeField] private LayerMask layerLevel;
         private float _distanceWallCollision = 1f;
+
+        private bool _alive = true;
 
         void Start()
         {
@@ -32,12 +34,22 @@ namespace Enemies
 
         void Update()
         {
+            if (!this.IsAlive())
+            {
+                return;
+            }
+            
             this.ValidateState();
             this.Move();
         }
-        
+
         private void FixedUpdate()
         {
+            if (!this.IsAlive())
+            {
+                return;
+            }
+            
             this.OnWall();
         }
 
@@ -48,7 +60,7 @@ namespace Enemies
             if (isGrounded)
             {
                 var direction = GetDirection();
-                
+
                 this._direction = Mathf.Sign(direction.x) * -1;
             }
         }
@@ -76,7 +88,7 @@ namespace Enemies
             {
                 this.transform.localScale = new Vector3(this._direction * -1, 1f, 1f);
             }
-            
+
             this._animator.SetBool(AnimationParameter.Moving, newVelocity.x != 0);
         }
 
@@ -92,12 +104,12 @@ namespace Enemies
         {
             this._nextStateChange = Random.Range(this.minStateTime, this.maxStateTime);
         }
-        
+
         private bool IsGrounded()
         {
             // Direção do raycast
             var direction = GetDirection();
-            
+
             // Checando colisão com a parede
             bool inWall = Physics2D.Raycast(this._boxCollider2D.bounds.center, direction,
                 this._distanceWallCollision, this.layerLevel);
@@ -113,6 +125,24 @@ namespace Enemies
         private Vector2 GetDirection()
         {
             return this._rigidbody2D.velocity.x > 0 ? Vector2.right : Vector2.left;
+        }
+
+        public bool IsAlive()
+        {
+            return this._alive;
+        }
+
+        public void Die()
+        {
+            if (!this.IsAlive())
+            {
+                return;
+            }
+            
+            this._animator.SetTrigger(AnimationParameter.Hit);
+            this._alive = false;
+            this._rigidbody2D.velocity = Vector2.zero;
+            Destroy(this.gameObject, 5f);
         }
     }
 }
