@@ -15753,10 +15753,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1632714350364373854, guid: da1ee4f2af8cf3244a183f6ffbf21df1, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1632714350369225024, guid: da1ee4f2af8cf3244a183f6ffbf21df1, type: 3}
       propertyPath: m_Name
       value: Player
@@ -15804,14 +15800,6 @@ PrefabInstance:
     - target: {fileID: 1632714350369225025, guid: da1ee4f2af8cf3244a183f6ffbf21df1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6573399293945040342, guid: da1ee4f2af8cf3244a183f6ffbf21df1, type: 3}
-      propertyPath: life
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6573399293945040342, guid: da1ee4f2af8cf3244a183f6ffbf21df1, type: 3}
-      propertyPath: invincibilityTime
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da1ee4f2af8cf3244a183f6ffbf21df1, type: 3}
