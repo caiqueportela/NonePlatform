@@ -1,3 +1,4 @@
+using Door;
 using Enemies;
 using Helper;
 using UnityEngine;
@@ -28,6 +29,8 @@ namespace Player
 
         private float _invincibility;
 
+        private DoorController _doorController;
+
         void Start()
         {
             this._rigidbody2D = GetComponent<Rigidbody2D>();
@@ -41,12 +44,11 @@ namespace Player
             {
                 return;
             }
-            
+
             this.Move();
-
             this.Jump();
-
             this.CheckInvincibility();
+            this.EnterDoor();
         }
 
         private void CheckInvincibility()
@@ -55,7 +57,7 @@ namespace Player
             {
                 return;
             }
-            
+
             if (this.IsInvincible())
             {
                 this._invincibility -= Time.deltaTime;
@@ -151,6 +153,20 @@ namespace Player
             if (other.CompareTag(Tags.EnemiesHit))
             {
                 this.CollisionEnemy(other);
+                return;
+            }
+
+            if (other.CompareTag(Tags.Door))
+            {
+                this._doorController = other.GetComponent<DoorController>();
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.CompareTag(Tags.Door))
+            {
+                this._doorController.Close();
             }
         }
 
@@ -162,9 +178,9 @@ namespace Player
             {
                 return;
             }
-            
+
             pigController.Die();
-            
+
             if (this.transform.position.y > other.transform.position.y)
             {
                 this.DoJump();
@@ -192,10 +208,18 @@ namespace Player
         {
             return this._invincibility > 0;
         }
-        
+
         public bool IsAlive()
         {
             return this.life > 0;
+        }
+
+        private void EnterDoor()
+        {
+            if (this._doorController && Input.GetKeyDown(KeyCode.W))
+            {
+                this._doorController.Open();
+            }
         }
     }
 }

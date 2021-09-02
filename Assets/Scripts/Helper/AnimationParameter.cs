@@ -7,5 +7,7 @@
         public const string InFloor = "InFloor";
         public const string Hit = "Hit";
         public const string Dead = "Dead";
+        public const string OpenDoor = "OpenDoor";
+        public const string CloseDoor = "CloseDoor";
     }
 }
