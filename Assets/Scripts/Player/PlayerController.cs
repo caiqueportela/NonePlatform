@@ -31,6 +31,8 @@ namespace Player
 
         private DoorController _doorController;
 
+        private bool _inDoorAction;
+
         void Start()
         {
             this._rigidbody2D = GetComponent<Rigidbody2D>();
@@ -40,7 +42,7 @@ namespace Player
 
         void Update()
         {
-            if (!this.IsAlive())
+            if (!this.IsAlive() || this.IsInDoorAction())
             {
                 return;
             }
@@ -53,7 +55,7 @@ namespace Player
 
         private void CheckInvincibility()
         {
-            if (!this.IsAlive())
+            if (!this.IsAlive() || this.IsInDoorAction())
             {
                 return;
             }
@@ -166,7 +168,7 @@ namespace Player
         {
             if (other.CompareTag(Tags.Door))
             {
-                this._doorController.Close();
+                // this._doorController.Close();
             }
         }
 
@@ -174,7 +176,7 @@ namespace Player
         {
             var pigController = other.GetComponentInParent<PigController>();
 
-            if (!pigController.IsAlive() || !this.IsAlive())
+            if (!pigController.IsAlive() || !this.IsAlive() || this.IsInDoorAction())
             {
                 return;
             }
@@ -219,7 +221,22 @@ namespace Player
             if (this._doorController && Input.GetKeyDown(KeyCode.W))
             {
                 this._doorController.Open();
+                this._rigidbody2D.velocity = Vector2.zero;
+                this._inDoorAction = true;
+                this._animator.SetBool(AnimationParameter.Moving, false);
+                Invoke("AnimationEnterDoor", 1f);
+                StartCoroutine(this._doorController.GoToDestiny());
             }
+        }
+
+        private void AnimationEnterDoor()
+        {
+            this._animator.SetTrigger(AnimationParameter.EnterDoor);
+        }
+
+        private bool IsInDoorAction()
+        {
+            return this._inDoorAction;
         }
     }
 }

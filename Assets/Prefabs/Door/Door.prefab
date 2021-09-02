@@ -173,3 +173,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e7dbe692f275e42b826338e2c18550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destinyScene: {fileID: 102900000, guid: bf79d0f0132f7bd41a3a564e0e071cb2, type: 3}

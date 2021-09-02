@@ -9,5 +9,6 @@
         public const string Dead = "Dead";
         public const string OpenDoor = "OpenDoor";
         public const string CloseDoor = "CloseDoor";
+        public const string EnterDoor = "EnterDoor";
     }
 }
