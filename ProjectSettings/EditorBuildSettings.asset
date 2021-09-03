@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Sala1.unity
+    guid: bf79d0f0132f7bd41a3a564e0e071cb2
+  - enabled: 1
+    path: Assets/Scenes/Sala2.unity
+    guid: e408811a38503d04a891592c0bf29489
+  - enabled: 1
+    path: Assets/Scenes/Sala3.unity
+    guid: ea3f426d85daba94caae109ccbff6fa5
   m_configObjects: {}

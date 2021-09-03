@@ -1,5 +1,6 @@
 using Door;
 using Enemies;
+using Game;
 using Helper;
 using UnityEngine;
 
@@ -33,11 +34,16 @@ namespace Player
 
         private bool _inDoorAction;
 
+        private GameManager _gameManager;
+
         void Start()
         {
             this._rigidbody2D = GetComponent<Rigidbody2D>();
             this._animator = GetComponentInChildren<Animator>();
             this._boxCollider2D = GetComponent<BoxCollider2D>();
+            this._gameManager = FindObjectOfType<GameManager>();
+
+            this.life = this._gameManager.GetPlayerLife();
         }
 
         void Update()
@@ -181,11 +187,10 @@ namespace Player
                 return;
             }
 
-            pigController.Die();
-
             if (this.transform.position.y > other.transform.position.y)
             {
                 this.DoJump();
+                pigController.Die();
             }
             else if (this._invincibility <= 0)
             {
@@ -197,12 +202,14 @@ namespace Player
         private void TakeDamage(int damage)
         {
             this.life -= damage;
+            this._gameManager.TakeDamage(damage);
             this._animator.SetTrigger(AnimationParameter.Hit);
 
             if (this.life <= 0)
             {
                 this._animator.SetTrigger(AnimationParameter.Dead);
                 this._rigidbody2D.velocity = Vector2.zero;
+                Invoke("RestartGame", 5f);
             }
         }
 
@@ -218,7 +225,7 @@ namespace Player
 
         private void EnterDoor()
         {
-            if (this._doorController && Input.GetKeyDown(KeyCode.W))
+            if (this._doorController && Input.GetKeyDown(KeyCode.W) && this._doorController.HasDestiny())
             {
                 this._doorController.Open();
                 this._rigidbody2D.velocity = Vector2.zero;
@@ -237,6 +244,11 @@ namespace Player
         private bool IsInDoorAction()
         {
             return this._inDoorAction;
+        }
+        
+        private void RestartGame()
+        {
+            this._gameManager.ResetGame();
         }
     }
 }

@@ -31,6 +31,11 @@ namespace Door
             this._gameManager.ChangeScene(this.destinyScene);
         }
 
+        public bool HasDestiny()
+        {
+            return this.destinyScene != null;
+        }
+
         public void Open()
         {
             this._animator.SetTrigger(AnimationParameter.OpenDoor);
