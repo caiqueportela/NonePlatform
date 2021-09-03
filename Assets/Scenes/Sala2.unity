@@ -482,8 +482,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5942632752137473932, guid: 78269827c44e50a44884e0e84494b90c, type: 3}
       propertyPath: destinyScene
-      value: 
-      objectReference: {fileID: 102900000, guid: ea3f426d85daba94caae109ccbff6fa5, type: 3}
+      value: Sala3
+      objectReference: {fileID: 0}
     - target: {fileID: 7776731040691789592, guid: 78269827c44e50a44884e0e84494b90c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -655,6 +655,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5942632752137473932, guid: 78269827c44e50a44884e0e84494b90c, type: 3}
+      propertyPath: destinyScene
+      value: Sala1
+      objectReference: {fileID: 0}
     - target: {fileID: 7776731040691789592, guid: 78269827c44e50a44884e0e84494b90c, type: 3}
       propertyPath: m_RootOrder
       value: 3

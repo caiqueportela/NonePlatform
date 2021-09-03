@@ -6890,7 +6890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 505651296590673497, guid: 578d4887f43d19347974b1b312596a69, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -33.11111
+      value: -35.333332
       objectReference: {fileID: 0}
     - target: {fileID: 505651296590673497, guid: 578d4887f43d19347974b1b312596a69, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7099,8 +7099,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5942632752137473932, guid: 78269827c44e50a44884e0e84494b90c, type: 3}
       propertyPath: destinyScene
-      value: 
-      objectReference: {fileID: 102900000, guid: e408811a38503d04a891592c0bf29489, type: 3}
+      value: Sala2
+      objectReference: {fileID: 0}
     - target: {fileID: 7776731040691789592, guid: 78269827c44e50a44884e0e84494b90c, type: 3}
       propertyPath: m_RootOrder
       value: 1

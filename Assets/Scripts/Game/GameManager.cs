@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -47,9 +46,9 @@ namespace Game
             return GameManager._playerLife;
         }
 
-        public void ChangeScene(SceneAsset scene)
+        public void ChangeScene(string sceneName)
         {
-            SceneManager.LoadScene(scene.name);
+            SceneManager.LoadScene(sceneName);
         }
     }
 }

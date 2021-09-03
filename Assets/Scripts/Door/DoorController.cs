@@ -10,7 +10,7 @@ namespace Door
     {
         private Animator _animator;
 
-        [SerializeField] private SceneAsset destinyScene;
+        [SerializeField] private string destinyScene;
 
         private GameManager _gameManager;
 
@@ -33,7 +33,7 @@ namespace Door
 
         public bool HasDestiny()
         {
-            return this.destinyScene != null;
+            return this.destinyScene.Length != 0;
         }
 
         public void Open()
